@@ -1,16 +1,33 @@
-import { Drawer } from "antd";
+import { Drawer, Menu, MenuProps } from "antd";
+import { allSets } from "../../schemas";
 
 interface DrawerDemoProps {
-  onClose: () => void;
   open: boolean;
+  onClose: () => void;
+  setActiveJSONForm: (info: string[]) => void;
 }
 
-function DrawerDemo({ onClose, open }: DrawerDemoProps) {
+type MenuItem = Required<MenuProps>["items"][number];
+
+const items: MenuItem[] = [];
+allSets.forEach((set) => {
+  items.push({
+    key: set.ref,
+    label: set.title,
+    children: set.uischema.elements.map((element) => ({
+      key: element.label,
+      label: element.label,
+    })),
+  });
+});
+
+function DrawerDemo({ onClose, open, setActiveJSONForm }: DrawerDemoProps) {
+  const onclick: MenuProps["onClick"] = (info) => {
+    setActiveJSONForm(info.keyPath);
+  };
   return (
     <Drawer title="Basic Drawer" onClose={onClose} open={open} placement="left">
-      <p>Some contents...</p>
-      <p>Some contents...</p>
-      <p>Some contents...</p>
+      <Menu mode="inline" items={items} onClick={onclick} />
     </Drawer>
   );
 }

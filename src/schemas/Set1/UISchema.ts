@@ -3,7 +3,7 @@ export const UISchema = {
   elements: [
     {
       type: "Category",
-      label: "categoryLabelKey",
+      label: "basic",
       elements: [
         {
           type: "HorizontalLayout",
