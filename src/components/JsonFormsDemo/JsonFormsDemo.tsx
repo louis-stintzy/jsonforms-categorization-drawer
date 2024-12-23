@@ -60,12 +60,13 @@ function JsonFormsDemo({ activeJSONForm, showDrawer }: JsonFormsDemoProps) {
           cells={vanillaCells}
           onChange={({ data }) => setData(data)}
         />
-        <button onClick={showDrawer} className="showDrawer">
-          Show Drawer
-        </button>
       </div>
       <div style={{ padding: "0 24px" }}>
-        <BoundData stringifiedData={stringifiedData} resetForm={handleReset} />
+        <BoundData
+          stringifiedData={stringifiedData}
+          resetForm={handleReset}
+          showDrawer={showDrawer}
+        />
       </div>
     </Layout>
   );

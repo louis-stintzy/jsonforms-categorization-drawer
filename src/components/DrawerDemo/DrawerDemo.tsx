@@ -24,6 +24,7 @@ allSets.forEach((set) => {
 function DrawerDemo({ onClose, open, setActiveJSONForm }: DrawerDemoProps) {
   const onclick: MenuProps["onClick"] = (info) => {
     setActiveJSONForm(info.keyPath);
+    onClose();
   };
   return (
     <Drawer title="Basic Drawer" onClose={onClose} open={open} placement="left">

@@ -5,9 +5,10 @@ import { useState } from "react";
 interface BoundDataProps {
   stringifiedData: string;
   resetForm: () => void;
+  showDrawer: () => void;
 }
 
-function BoundData({ stringifiedData, resetForm }: BoundDataProps) {
+function BoundData({ stringifiedData, resetForm, showDrawer }: BoundDataProps) {
   const [boundDataIsVisible, setBoundDataIsVisible] = useState(false);
   const handleClick = () => {
     setBoundDataIsVisible(!boundDataIsVisible);
@@ -20,10 +21,23 @@ function BoundData({ stringifiedData, resetForm }: BoundDataProps) {
   };
   return (
     <div>
-      <Button onClick={resetForm} style={buttonStyle}>
+      <Button type="primary" onClick={showDrawer} style={buttonStyle}>
+        Show Drawer
+      </Button>
+      <Button
+        color="primary"
+        variant="outlined"
+        onClick={resetForm}
+        style={buttonStyle}
+      >
         Reset Data
       </Button>
-      <Button onClick={handleClick} style={buttonStyle}>
+      <Button
+        color="primary"
+        variant="outlined"
+        onClick={handleClick}
+        style={buttonStyle}
+      >
         {boundDataIsVisible ? "Hide" : "Show"} Bound Data
       </Button>
       <div

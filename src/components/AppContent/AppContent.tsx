@@ -24,7 +24,7 @@ function AppContent() {
 
   return (
     <Layout>
-      <Content style={{ padding: "0 48px" }}>
+      <Content style={{ padding: "0 154px", marginTop: "32px" }}>
         <DrawerDemo
           onClose={onClose}
           open={open}
