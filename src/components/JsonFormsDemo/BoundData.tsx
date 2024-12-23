@@ -1,32 +1,49 @@
+import { Button } from "antd";
+import { Typography } from "antd";
+import { useState } from "react";
+
 interface BoundDataProps {
   stringifiedData: string;
   resetForm: () => void;
 }
 
 function BoundData({ stringifiedData, resetForm }: BoundDataProps) {
+  const [boundDataIsVisible, setBoundDataIsVisible] = useState(false);
+  const handleClick = () => {
+    setBoundDataIsVisible(!boundDataIsVisible);
+  };
+  const { Title } = Typography;
+
+  const buttonStyle = {
+    margin: "0 1rem 1rem 0",
+    width: "128px",
+  };
   return (
-    <div style={{ position: "fixed", top: "350px", width: "100%" }}>
-      <h4>Bound data</h4>
-      <button
-        onClick={resetForm}
-        style={{
-          margin: "auto !important",
-          display: "block !important",
-          marginBottom: "1rem",
-        }}
-      >
-        Reset
-      </button>
+    <div>
+      <Button onClick={resetForm} style={buttonStyle}>
+        Reset Data
+      </Button>
+      <Button onClick={handleClick} style={buttonStyle}>
+        {boundDataIsVisible ? "Hide" : "Show"} Bound Data
+      </Button>
       <div
         style={{
-          display: "flex",
-          justifyContent: "center",
-          borderRadius: "0.25rem",
-          backgroundColor: "#cecece",
-          marginBottom: "1rem",
+          visibility: boundDataIsVisible ? "visible" : "hidden",
         }}
       >
-        <pre id="boundData">{stringifiedData}</pre>
+        <Title level={4}>Bound data</Title>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            borderRadius: "0.25rem",
+            backgroundColor: "#cecece",
+            marginBottom: "1rem",
+            padding: "0.5rem",
+          }}
+        >
+          <pre id="boundData">{stringifiedData}</pre>
+        </div>
       </div>
     </div>
   );
