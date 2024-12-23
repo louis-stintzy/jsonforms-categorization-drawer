@@ -7,6 +7,8 @@ interface DrawerDemoProps {
   setActiveJSONForm: (info: string[]) => void;
 }
 
+// todo: reinitialiser les bound data si on change de set
+
 type MenuItem = Required<MenuProps>["items"][number];
 
 const items: MenuItem[] = [];
