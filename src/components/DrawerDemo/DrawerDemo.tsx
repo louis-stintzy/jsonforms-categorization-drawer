@@ -7,9 +7,9 @@ interface DrawerDemoProps {
   setActiveJSONForm: (info: string[]) => void;
 }
 
-// todo: reinitialiser les bound data si on change de set
-// todo: reinitialiser et non reset quand on appuie sur le bouton
-// todo: exemple disable le bouton adress dans drawer si checkbox provide adress n'est pas coché
+// todo: reinitialiser data adress/additional si on decoche la checkbox
+// todo: (exemple) disable le bouton "adress" dans drawer si checkbox provide adress n'est pas coché, idem pour additional
+// todo: reinitialiser et non reset quand on appuie sur le bouton reset (dans set2?)
 
 type MenuItem = Required<MenuProps>["items"][number];
 
