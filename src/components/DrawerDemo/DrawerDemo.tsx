@@ -8,6 +8,8 @@ interface DrawerDemoProps {
 }
 
 // todo: reinitialiser les bound data si on change de set
+// todo: reinitialiser et non reset quand on appuie sur le bouton
+// todo: exemple disable le bouton adress dans drawer si checkbox provide adress n'est pas coché
 
 type MenuItem = Required<MenuProps>["items"][number];
 
