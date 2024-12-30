@@ -24,3 +24,32 @@ export const allSets = [
     initialData: initialData2,
   },
 ];
+
+export const globalSchema = {
+  type: "object",
+  properties: {
+    ...schema.properties,
+    ...schema2.properties,
+  },
+};
+
+export const globalUISchema = {
+  type: "Categorization",
+  elements: [
+    {
+      type: "Categorization",
+      label: "Set 1",
+      elements: UISchema.elements,
+    },
+    {
+      type: "Categorization",
+      label: "Set 2",
+      elements: UISchema2.elements,
+    },
+  ],
+};
+
+export const globalInitialData = {
+  set1: initialData,
+  set2: initialData2,
+};
